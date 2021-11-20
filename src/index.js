@@ -13,9 +13,9 @@ export class TodoApp extends LitElement {
 
   constructor() {
     super();
-    this.listItems = [];
+    this.listItems = JSON.parse(localStorage.getItem("todoList")) || [];
     this.filteredItems = "all";
-    this.isDark = false;
+    this.isDark = localStorage.getItem("isDark") === "true" ? true : false;
   }
 
   render() {

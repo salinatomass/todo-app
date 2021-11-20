@@ -32,6 +32,7 @@ class HeaderComponent extends LitElement {
 
   _toggleTheme(e) {
     this.isDark = !this.isDark;
+    window.localStorage.setItem("isDark", this.isDark);
   }
 }
 

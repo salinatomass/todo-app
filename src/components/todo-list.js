@@ -89,6 +89,10 @@ class TodoList extends LitElement {
     return html` ${addTodoTemplate} ${todoListTemplate} ${optionsTemplate}`;
   }
 
+  _setLocalStorage() {
+    window.localStorage.setItem("todoList", JSON.stringify(this.listItems));
+  }
+
   get input() {
     return this.renderRoot?.querySelector("#newItem") ?? null;
   }
@@ -104,19 +108,25 @@ class TodoList extends LitElement {
       },
     ];
     this.input.value = "";
+
+    this._setLocalStorage();
   }
 
   _clearCompleted(e) {
     this.listItems = this.listItems.filter((item) => !item.completed);
+    this._setLocalStorage();
   }
 
   _deleteItem(item) {
     this.listItems = this.listItems.filter((task) => task.id !== item.id);
+    this._setLocalStorage();
   }
 
   _toggleCompleted(item) {
     item.completed = !item.completed;
     this.requestUpdate();
+
+    this._setLocalStorage();
   }
 
   _clickHandler(e) {
