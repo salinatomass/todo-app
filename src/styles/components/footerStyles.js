@@ -7,12 +7,4 @@ export const footerStyles = css`
     color: var(--active-text-color);
     text-align: center;
   }
-
-  @media screen and (min-width: 768px) {
-    .footer {
-      padding-bottom: 0;
-      position: relative;
-      top: -90px;
-    }
-  }
 `;
