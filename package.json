@@ -4,16 +4,27 @@
   "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development"
   },
   "keywords": [],
   "author": "Tomás Salina",
   "license": "MIT",
   "dependencies": {
-    "lit": "^2.0.2",
-    "uuid": "^8.3.2"
+    "lit": "2.0.2",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
-    "es-dev-server": "^2.1.0"
+    "@babel/core": "7.16.0",
+    "@babel/preset-env": "7.16.4",
+    "babel-loader": "8.2.3",
+    "css-loader": "^6.5.1",
+    "es-dev-server": "2.1.0",
+    "html-webpack-plugin": "5.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "webpack": "5.64.3",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "^4.5.0"
   }
 }

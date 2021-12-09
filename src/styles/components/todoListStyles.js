@@ -1,4 +1,6 @@
-import { css } from "lit";
+import { css, unsafeCSS } from 'lit';
+
+import iconCheck from '../../images/icon-check.svg';
 
 export const todoListStyles = css`
   .check-circle {
@@ -47,7 +49,7 @@ export const todoListStyles = css`
   .main-list li.completed > .check-circle .check-icon {
     width: 100%;
     height: 100%;
-    background-image: url("./src/images/icon-check.svg");
+    background-image: url(${unsafeCSS(iconCheck)});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 12px;

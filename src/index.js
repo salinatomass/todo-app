@@ -1,8 +1,10 @@
-import { LitElement, html } from "lit";
+import './styles/styles.css';
 
-import "./components/header-component";
-import "./components/todo-list";
-import "./components/footer-component";
+import { LitElement, html } from 'lit';
+
+import './components/header-component';
+import './components/todo-list';
+import './components/footer-component';
 
 export class TodoApp extends LitElement {
   static properties = {
@@ -13,9 +15,9 @@ export class TodoApp extends LitElement {
 
   constructor() {
     super();
-    this.listItems = JSON.parse(localStorage.getItem("todoList")) || [];
-    this.filteredItems = "all";
-    this.isDark = localStorage.getItem("isDark") === "true" ? true : false;
+    this.listItems = JSON.parse(localStorage.getItem('todoList')) || [];
+    this.filteredItems = 'all';
+    this.isDark = localStorage.getItem('isDark') === 'true' ? true : false;
   }
 
   render() {
@@ -34,4 +36,4 @@ export class TodoApp extends LitElement {
   }
 }
 
-customElements.define("todo-app", TodoApp);
+customElements.define('todo-app', TodoApp);

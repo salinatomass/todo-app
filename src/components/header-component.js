@@ -1,5 +1,8 @@
-import { LitElement, html } from "lit";
-import { headerStyles } from "../styles/components/headerStyles";
+import { LitElement, html } from 'lit';
+import { headerStyles } from '../styles/components/headerStyles';
+
+import iconSun from '../images/icon-sun.svg';
+import iconMoon from '../images/icon-moon.svg';
 
 class HeaderComponent extends LitElement {
   static properties = {
@@ -15,12 +18,10 @@ class HeaderComponent extends LitElement {
 
   render() {
     this.isDark
-      ? document.body.classList.add("isDark")
-      : document.body.classList.remove("isDark");
+      ? document.body.classList.add('isDark')
+      : document.body.classList.remove('isDark');
 
-    const source = this.isDark
-      ? "./src/images/icon-sun.svg"
-      : "./src/images/icon-moon.svg";
+    const source = this.isDark ? iconSun : iconMoon;
 
     return html`
       <header class="header">
@@ -32,8 +33,8 @@ class HeaderComponent extends LitElement {
 
   _toggleTheme(e) {
     this.isDark = !this.isDark;
-    window.localStorage.setItem("isDark", this.isDark);
+    window.localStorage.setItem('isDark', this.isDark);
   }
 }
 
-customElements.define("header-component", HeaderComponent);
+customElements.define('header-component', HeaderComponent);

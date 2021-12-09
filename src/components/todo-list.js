@@ -1,9 +1,11 @@
-import { LitElement, html } from "lit";
-import { v4 as uuid } from "uuid";
+import { LitElement, html } from 'lit';
+import { v4 as uuid } from 'uuid';
 
-import { todoListStyles } from "../styles/components/todoListStyles";
-import { optionsTemplateStyles } from "../styles/components/optionsTemplateStyles";
-import { addTodoTemplateStyles } from "../styles/components/addTodoTemplateStyles";
+import { todoListStyles } from '../styles/components/todoListStyles';
+import { optionsTemplateStyles } from '../styles/components/optionsTemplateStyles';
+import { addTodoTemplateStyles } from '../styles/components/addTodoTemplateStyles';
+
+import iconCross from '../images/icon-cross.svg';
 
 class TodoList extends LitElement {
   static properties = {
@@ -18,13 +20,13 @@ class TodoList extends LitElement {
   constructor() {
     super();
     this.listItems = [];
-    this.filteredItems = "all";
+    this.filteredItems = 'all';
   }
 
   render() {
     const TODO_CASES = {
-      active: this.listItems.filter((item) => !item.completed), // "active"
-      completed: this.listItems.filter((item) => item.completed), // "completed"
+      active: this.listItems.filter(item => !item.completed), // "active"
+      completed: this.listItems.filter(item => item.completed), // "completed"
     };
     const TODO_DEFAULT_CASE = this.listItems; // "all"
     const items = TODO_CASES[this.filteredItems] || TODO_DEFAULT_CASE;
@@ -43,8 +45,8 @@ class TodoList extends LitElement {
 
     const todoListTemplate = html` <ul class="main-list">
       ${items.map(
-        (item) => html`
-          <li class=${item.completed ? "completed" : ""}>
+        item => html`
+          <li class=${item.completed ? 'completed' : ''}>
             <div
               @click=${() => this._toggleCompleted(item)}
               class="check-circle"
@@ -52,16 +54,13 @@ class TodoList extends LitElement {
               <div class="check-icon"></div>
             </div>
             <p>${item.text}</p>
-            <img
-              @click=${() => this._deleteItem(item)}
-              src="./src/images/icon-cross.svg"
-            />
+            <img @click=${() => this._deleteItem(item)} src=${iconCross} />
           </li>
         `
       )}
       <div class="main-list-info">
         <p>
-          ${this.listItems.filter((item) => !item.completed).length} items left
+          ${this.listItems.filter(item => !item.completed).length} items left
         </p>
         <button @click=${this._clearCompleted} type="button">
           Clear Completed
@@ -90,11 +89,11 @@ class TodoList extends LitElement {
   }
 
   _setLocalStorage() {
-    window.localStorage.setItem("todoList", JSON.stringify(this.listItems));
+    window.localStorage.setItem('todoList', JSON.stringify(this.listItems));
   }
 
   get input() {
-    return this.renderRoot?.querySelector("#newItem") ?? null;
+    return this.renderRoot?.querySelector('#newItem') ?? null;
   }
 
   _addToDo(e) {
@@ -107,18 +106,18 @@ class TodoList extends LitElement {
         completed: false,
       },
     ];
-    this.input.value = "";
+    this.input.value = '';
 
     this._setLocalStorage();
   }
 
   _clearCompleted(e) {
-    this.listItems = this.listItems.filter((item) => !item.completed);
+    this.listItems = this.listItems.filter(item => !item.completed);
     this._setLocalStorage();
   }
 
   _deleteItem(item) {
-    this.listItems = this.listItems.filter((task) => task.id !== item.id);
+    this.listItems = this.listItems.filter(task => task.id !== item.id);
     this._setLocalStorage();
   }
 
@@ -133,11 +132,11 @@ class TodoList extends LitElement {
     if (e.target !== e.currentTarget) {
       this.filteredItems = e.target.name;
 
-      const buttons = this.renderRoot.querySelectorAll("button[name]");
-      buttons.forEach((button) => button.classList.remove("selected"));
-      e.target.classList.add("selected");
+      const buttons = this.renderRoot.querySelectorAll('button[name]');
+      buttons.forEach(button => button.classList.remove('selected'));
+      e.target.classList.add('selected');
     }
   }
 }
 
-customElements.define("todo-list", TodoList);
+customElements.define('todo-list', TodoList);
