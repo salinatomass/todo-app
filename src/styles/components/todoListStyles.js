@@ -8,16 +8,20 @@ export const todoListStyles = css`
     height: 24px;
     border: 1px solid var(--secondary-text-color);
     border-radius: 50%;
+
+    cursor: pointer;
   }
 
   .main-list {
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 0;
     font-size: 1.4rem;
     line-height: 1.6;
     letter-spacing: 0.8px;
     background: var(--white-color);
     border-radius: 4px;
+
+    box-shadow: 0 16px 34px 0 rgba(0, 0, 0, 0.1);
   }
   .main-list li {
     padding: 10px 18px;
@@ -29,8 +33,11 @@ export const todoListStyles = css`
   }
   .main-list li img {
     justify-self: flex-end;
+
+    cursor: pointer;
   }
   .main-list-info {
+    height: 50px;
     padding: 10px 18px;
     display: flex;
     align-items: center;
@@ -42,6 +49,8 @@ export const todoListStyles = css`
     color: var(--secondary-text-color);
     background: none;
     border: none;
+
+    cursor: pointer;
   }
   .main-list li.completed > .check-circle {
     background-image: var(--check-background);

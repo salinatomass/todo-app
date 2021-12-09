@@ -1,4 +1,4 @@
-import { css } from "lit";
+import { css } from 'lit';
 
 export const optionsTemplateStyles = css`
   .main-options {
@@ -8,6 +8,8 @@ export const optionsTemplateStyles = css`
     gap: 18px;
     background-color: var(--white-color);
     border-radius: 4px;
+
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
   }
   .main-options button {
     padding: 18px 10px;
@@ -18,8 +20,23 @@ export const optionsTemplateStyles = css`
     background: transparent;
     border: none;
     outline: none;
+
+    cursor: pointer;
   }
   .main-options button.selected {
     color: var(--primary-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    .main-options {
+      width: fit-content;
+      height: 70px;
+      gap: 0;
+      margin: 0 auto;
+      background: transparent;
+      box-shadow: none;
+      position: relative;
+      top: -90px; // -20px (margin) - 70px (height)
+    }
   }
 `;

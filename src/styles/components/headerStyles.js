@@ -1,4 +1,4 @@
-import { css } from "lit";
+import { css } from 'lit';
 
 export const headerStyles = css`
   .header {
@@ -10,5 +10,15 @@ export const headerStyles = css`
     color: var(--header-logo-color);
     letter-spacing: 1rem;
     text-transform: uppercase;
+  }
+  .header img {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 768px) {
+    .header {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
   }
 `;

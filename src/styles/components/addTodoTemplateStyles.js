@@ -1,4 +1,4 @@
-import { css } from "lit";
+import { css } from 'lit';
 
 export const addTodoTemplateStyles = css`
   .main-action {
@@ -9,6 +9,9 @@ export const addTodoTemplateStyles = css`
     grid-gap: 9px;
     background: var(--white-color);
     border-radius: 4px;
+  }
+  .main-action .check-circle {
+    cursor: default;
   }
   .main-action form {
     height: 100%;

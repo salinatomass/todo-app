@@ -79,11 +79,10 @@ class TodoList extends LitElement {
       </style>
     `;
 
-    if (!this.listItems.length > 0) {
+    if (!this.listItems.length > 0)
       return html`<ul class="main-list">
         ${addTodoTemplate}
       </ul>`;
-    }
 
     return html` ${addTodoTemplate} ${todoListTemplate} ${optionsTemplate}`;
   }

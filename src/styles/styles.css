@@ -1,13 +1,14 @@
 :root {
-  --primary-font: "Josefin Sans", sans-serif;
+  /* Fonts */
+  --primary-font: 'Josefin Sans', sans-serif;
 
+  /* Colors */
   --primary-color: hsl(220, 98%, 61%);
   --check-background: linear-gradient(
     315deg,
     hsl(280, 87%, 65%) 0%,
     hsl(192, 100%, 67%) 100%
   );
-
   --header-logo-color: hsl(0, 0%, 100%);
 
   /* Light Theme */
@@ -44,7 +45,7 @@ body {
   font-weight: 400;
   color: var(--primary-text-color);
   background-color: var(--light-background);
-  background-image: url("../images/bg-mobile-light.jpg");
+  background-image: url('../images/bg-mobile-light.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
 
@@ -52,16 +53,28 @@ body {
 }
 
 .wrapper {
+  max-width: 600px;
+  margin: 0 auto;
   padding-left: 1.8rem;
   padding-right: 1.8rem;
 }
 
 body.isDark {
-  background-image: url("../images/bg-mobile-dark.jpg");
+  background-image: url('../images/bg-mobile-dark.jpg');
 
   --light-background: var(--dark-background);
   --white-color: var(--dark-color);
   --primary-text-color: var(--primary-text-color-dark);
   --secondary-text-color: var(--secondary-text-color-dark);
   --active-text-color: var(--active-text-color-dark);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('../images/bg-desktop-light.jpg');
+  }
+
+  body.isDark {
+    background-image: url('../images/bg-desktop-dark.jpg');
+  }
 }
